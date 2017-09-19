@@ -1,0 +1,71 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Node implements Comparable<Node> {
+
+	    public final String name;
+	    public final int x;
+	    public final int y;
+	    public List<Edge> adjacencies;
+	    public double minDistance = Double.POSITIVE_INFINITY;  // define node's minimum distance to the source node 
+	    public Node previous;
+
+	    public Node(String Name,int x,int y) {
+	        name = Name;
+	        this.x = x;
+	        this.y = y;
+	        adjacencies = new ArrayList<Edge>();
+	        this.previous = null;
+	    }
+
+	    public void addEdge(Edge e) {
+	        adjacencies.add(e);
+	    }
+
+	    public String toString() {
+	        return name + "(" + x + "," + y + ")";
+	    }
+
+	    public int compareTo(Node otherNode) {
+	        return Double.compare(minDistance, otherNode.minDistance);
+	    }
+
+		public List<Edge> getAdjacencies() {
+			return adjacencies;
+		}
+
+		public void setAdjacencies(List<Edge> adjacencies) {
+			this.adjacencies = adjacencies;
+		}
+
+		public double getMinDistance() {
+			return minDistance;
+		}
+
+		public void setMinDistance(double minDistance) {
+			this.minDistance = minDistance;
+		}
+
+		public Node getPrevious() {
+			return previous;
+		}
+
+		public void setPrevious(Node previous) {
+			this.previous = previous;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public int getX() {
+			return x;
+		}
+
+		public int getY() {
+			return y;
+		}  
+}
+
+	
+	
